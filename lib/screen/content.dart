@@ -144,7 +144,7 @@ class _ContentTabState extends State<ContentTab> {
     try {
       final Map raw = await WpApi.getPosts(
         request: {
-          'categories': widget.category == 0 ? '' : '${widget.category}',
+          'categories': widget.category == 0 ? ' ' : '${widget.category}',
           'categories_exclude': '1084',
           'page': '$pageKey',
           'per_page': '10',
