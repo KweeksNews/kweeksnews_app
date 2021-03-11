@@ -21,7 +21,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../common/config.dart';
+import '../../common/config.dart';
 import 'network_utils.dart';
 
 class WpApi extends NetworkUtils {

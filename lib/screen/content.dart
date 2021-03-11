@@ -26,7 +26,7 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 import '../common/config.dart';
 import '../models/post.dart';
-import '../network/wordpress_apis.dart';
+import '../utils/network/wordpress_apis.dart';
 import '../widgets/error_indicator.dart';
 import '../widgets/loading_indicator.dart';
 import '../widgets/post_box.dart';

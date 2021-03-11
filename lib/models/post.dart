@@ -21,7 +21,7 @@
 
 import 'package:intl/intl.dart';
 
-import '../data/database_utils.dart';
+import '../utils/database/database_utils.dart';
 
 class Post {
   final int id;

@@ -27,8 +27,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 import '../models/comment.dart';
-import '../network/wordpress_apis.dart';
 import '../providers.dart';
+import '../utils/network/wordpress_apis.dart';
 import '../widgets/comment_box.dart';
 import '../widgets/error_indicator.dart';
 import '../widgets/identity_settings.dart';

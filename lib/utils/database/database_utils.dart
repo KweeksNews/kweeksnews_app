@@ -22,7 +22,7 @@
 import 'package:moor/moor.dart';
 import 'package:moor_flutter/moor_flutter.dart';
 
-import '../models/post.dart';
+import '../../models/post.dart';
 
 part 'database_utils.g.dart';
 

@@ -22,7 +22,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../models/post.dart';
-import '../network/wordpress_apis.dart';
+import '../utils/network/wordpress_apis.dart';
 
 abstract class RelatedPostsState {
   const RelatedPostsState();

@@ -21,10 +21,10 @@
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'data/database_utils.dart';
-import 'notifiers/identity_notifier.dart';
-import 'notifiers/related_posts_notifier.dart';
-import 'notifiers/theme_notifier.dart';
+import 'repository/identity_notifier.dart';
+import 'repository/related_posts_notifier.dart';
+import 'repository/theme_notifier.dart';
+import 'utils/database/database_utils.dart';
 
 final themeStateProvider = StateNotifierProvider<ThemeNotifier>(
   (ref) => ThemeNotifier(),

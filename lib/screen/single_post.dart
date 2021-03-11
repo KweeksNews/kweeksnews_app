@@ -30,10 +30,10 @@ import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-import '../data/database_utils.dart';
 import '../models/post.dart';
-import '../notifiers/related_posts_notifier.dart';
 import '../providers.dart';
+import '../repository/related_posts_notifier.dart';
+import '../utils/database/database_utils.dart';
 import '../widgets/error_indicator.dart';
 import '../widgets/loading_indicator.dart';
 import '../widgets/post_box.dart';
