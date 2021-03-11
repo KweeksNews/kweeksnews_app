@@ -50,7 +50,6 @@ class _CommentsState extends State<Comments> {
   final PagingController _pagingController = PagingController<int, Comment>(
     firstPageKey: 1,
   );
-  final WpApi _wpApi = const WpApi();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final FToast _flutterToast = FToast();
   bool _forceRefresh = false;
@@ -75,7 +74,7 @@ class _CommentsState extends State<Comments> {
 
   Future<void> _fetchPage(int pageKey) async {
     try {
-      final Map raw = await _wpApi.getComments(
+      final Map raw = await WpApi.getComments(
         request: {
           'post': '${widget.postId}',
           'page': '$pageKey',
@@ -143,7 +142,7 @@ class _CommentsState extends State<Comments> {
       );
 
       try {
-        final Map result = await _wpApi.postComment(
+        final Map result = await WpApi.postComment(
           request: {
             'post': widget.postId,
             'author_email': _email,

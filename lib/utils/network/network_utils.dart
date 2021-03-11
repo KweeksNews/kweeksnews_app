@@ -28,21 +28,22 @@ import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:flutter/foundation.dart';
 
 abstract class NetworkUtils {
-  static final _dioCacheManager = DioCacheManager(CacheConfig());
+  static final DioCacheManager _dioCacheManager =
+      DioCacheManager(CacheConfig());
   static final Dio _dio = Dio()
     ..interceptors.add(_dioCacheManager.interceptor as Interceptor);
 
   const NetworkUtils();
 
-  bool _isSuccessful(int code) {
+  static bool _isSuccessful(int code) {
     return code == 200 || code == 201;
   }
 
-  bool _isMobile() {
+  static bool _isMobile() {
     return !kIsWeb && (Platform.isIOS || Platform.isAndroid);
   }
 
-  Future<bool> isNetworkAvailable() async {
+  static Future<bool> isNetworkAvailable() async {
     if (_isMobile()) {
       final ConnectivityResult status =
           await Connectivity().checkConnectivity();
@@ -60,7 +61,7 @@ abstract class NetworkUtils {
     }
   }
 
-  Future<Response> getRequest({
+  static Future<Response> getRequest({
     @required Uri apiUrl,
     @required Uri endPoint,
     bool forceRefresh,
@@ -87,7 +88,7 @@ abstract class NetworkUtils {
     }
   }
 
-  Future<Response> postRequest({
+  static Future<Response> postRequest({
     @required Uri apiUrl,
     @required Uri endPoint,
     @required Map request,
@@ -112,7 +113,7 @@ abstract class NetworkUtils {
     }
   }
 
-  Future<Map> handleResponse(Response response) async {
+  static Future<Map> handleResponse(Response response) async {
     try {
       if (_isSuccessful(response.statusCode)) {
         final int status = response.statusCode;

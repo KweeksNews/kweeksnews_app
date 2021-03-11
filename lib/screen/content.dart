@@ -124,7 +124,6 @@ class _ContentTabState extends State<ContentTab> {
   final PagingController _pagingController = PagingController<int, Post>(
     firstPageKey: 1,
   );
-  final WpApi _wpApi = const WpApi();
   bool _forceRefresh = false;
 
   @override
@@ -143,7 +142,7 @@ class _ContentTabState extends State<ContentTab> {
 
   Future<void> _fetchPage(int pageKey) async {
     try {
-      final Map raw = await _wpApi.getPosts(
+      final Map raw = await WpApi.getPosts(
         request: {
           'categories': widget.category == 0 ? '' : '${widget.category}',
           'categories_exclude': '1084',

@@ -44,7 +44,6 @@ class _SearchState extends State<Search> {
   final PagingController _pagingController = PagingController<int, Post>(
     firstPageKey: 1,
   );
-  final WpApi _wpApi = const WpApi();
   bool _forceRefresh = false;
   String _searchTerm;
   Timer _timeHandle;
@@ -69,7 +68,7 @@ class _SearchState extends State<Search> {
       if (_searchTerm?.isEmpty ?? true) {
         _pagingController.error = 'No keyword';
       } else {
-        final Map raw = await _wpApi.getPosts(
+        final Map raw = await WpApi.getPosts(
           request: {
             'search': _searchTerm,
             'page': '$pageKey',

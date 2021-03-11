@@ -60,7 +60,6 @@ class RelatedPostsNotifier extends StateNotifier<RelatedPostsState> {
   Future<void> getPosts(int postId, int catId) async {
     try {
       state = const RelatedPostsLoading();
-      const WpApi _wpApi = WpApi();
       final Map<String, String> request = {
         'exclude': '$postId',
         'categories': '$catId',
@@ -68,7 +67,7 @@ class RelatedPostsNotifier extends StateNotifier<RelatedPostsState> {
         'per_page': '3',
         '_fields': 'id,date,title,content,custom,link',
       };
-      final Map raw = await _wpApi.getPosts(request: request);
+      final Map raw = await WpApi.getPosts(request: request);
       final List<Post> posts = List<Post>.from(
           raw['body'].map((m) => Post.fromJson(m as Map)) as Iterable);
       state = RelatedPostsLoaded(posts);

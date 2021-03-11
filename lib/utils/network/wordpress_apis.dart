@@ -33,17 +33,21 @@ class WpApi extends NetworkUtils {
 
   const WpApi();
 
-  Future<Map> getPosts({
+  static Future<Map> getPosts({
     @required Map<String, String> request,
     bool forceRefresh,
   }) async {
     try {
-      final Uri payload = Uri.parse(Uri.decodeFull(Uri(
-        path: 'wp/v2/posts',
-        queryParameters: request,
-      ).toString()));
-      return handleResponse(
-        await getRequest(
+      final Uri payload = Uri.parse(
+        Uri.decodeFull(
+          Uri(
+            path: 'wp/v2/posts',
+            queryParameters: request,
+          ).toString(),
+        ),
+      );
+      return NetworkUtils.handleResponse(
+        await NetworkUtils.getRequest(
           apiUrl: _apiUrl,
           endPoint: payload,
           forceRefresh: forceRefresh,
@@ -54,17 +58,21 @@ class WpApi extends NetworkUtils {
     }
   }
 
-  Future<Map> getComments({
+  static Future<Map> getComments({
     @required Map<String, String> request,
     bool forceRefresh,
   }) async {
     try {
-      final Uri payload = Uri.parse(Uri.decodeFull(Uri(
-        path: 'wp/v2/comments',
-        queryParameters: request,
-      ).toString()));
-      return handleResponse(
-        await getRequest(
+      final Uri payload = Uri.parse(
+        Uri.decodeFull(
+          Uri(
+            path: 'wp/v2/comments',
+            queryParameters: request,
+          ).toString(),
+        ),
+      );
+      return NetworkUtils.handleResponse(
+        await NetworkUtils.getRequest(
           apiUrl: _apiUrl,
           endPoint: payload,
           forceRefresh: forceRefresh,
@@ -75,11 +83,11 @@ class WpApi extends NetworkUtils {
     }
   }
 
-  Future<Map> postComment({@required Map request}) async {
+  static Future<Map> postComment({@required Map request}) async {
     try {
       final Uri path = Uri(path: 'wp/v2/comments');
-      return handleResponse(
-        await postRequest(
+      return NetworkUtils.handleResponse(
+        await NetworkUtils.postRequest(
           apiUrl: _apiUrl,
           endPoint: path,
           request: request,
