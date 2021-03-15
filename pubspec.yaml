@@ -25,6 +25,7 @@ dependencies:
   intl: ^0.17.0
   moor: ^3.4.0
   moor_flutter: ^3.1.0
+  onesignal_flutter: ^2.6.3
   package_info: ^2.0.0
   path_provider: ^2.0.0-nullsafety
   share: ^0.6.5+1

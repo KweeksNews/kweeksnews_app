@@ -14,3 +14,7 @@ const List<dynamic> tabCategories = [
   ['Video', 19],
   ['Podcast', 67],
 ];
+
+/// OneSignal app ID.
+/// Get it from OneSignal settings.
+const String oneSignalAppId = 'f97432b8-bdfd-4ceb-90f3-82ddeec78212';

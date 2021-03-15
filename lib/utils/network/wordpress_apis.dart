@@ -33,6 +33,32 @@ class WpApi extends NetworkUtils {
 
   const WpApi();
 
+  static Future<Map> getPost({
+    @required int id,
+    @required Map<String, String> request,
+    bool forceRefresh,
+  }) async {
+    try {
+      final Uri payload = Uri.parse(
+        Uri.decodeFull(
+          Uri(
+            path: 'wp/v2/posts/$id',
+            queryParameters: request,
+          ).toString(),
+        ),
+      );
+      return NetworkUtils.handleResponse(
+        await NetworkUtils.getRequest(
+          apiUrl: _apiUrl,
+          endPoint: payload,
+          forceRefresh: forceRefresh,
+        ),
+      );
+    } catch (error) {
+      rethrow;
+    }
+  }
+
   static Future<Map> getPosts({
     @required Map<String, String> request,
     bool forceRefresh,

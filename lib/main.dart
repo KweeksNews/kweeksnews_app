@@ -33,10 +33,13 @@ import 'screen/content.dart';
 import 'screen/saved_posts.dart';
 import 'screen/search.dart';
 import 'screen/settings.dart';
+import 'utils/push_notification.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  PushNotifications.init();
   await Firebase.initializeApp();
+
   runApp(
     const ProviderScope(
       child: MainApp(),
